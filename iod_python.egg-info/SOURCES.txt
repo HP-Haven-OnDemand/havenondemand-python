@@ -1,9 +1,0 @@
-setup.cfg
-setup.py
-iod_python.egg-info/PKG-INFO
-iod_python.egg-info/SOURCES.txt
-iod_python.egg-info/dependency_links.txt
-iod_python.egg-info/entry_points.txt
-iod_python.egg-info/top_level.txt
-iod_python.egg-info/zip-safe
-iodpython/__init__.py

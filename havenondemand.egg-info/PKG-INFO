@@ -1,11 +1,11 @@
 Metadata-Version: 1.0
-Name: iod-python
+Name: havenondemand
 Version: 0.1dev
-Summary: IDOL OnDemand python client library
-Home-page: http://idolondemand.com
+Summary: Haven OnDemand Python client library
+Home-page: http://havenondemand.com
 Author: Martin Zerbib
 Author-email: martinzerbib@gmail.com
 License: UNKNOWN
 Description: UNKNOWN
-Keywords: IDOL idolondemand iod
+Keywords: Haven OnDemand havenondemand hod
 Platform: UNKNOWN

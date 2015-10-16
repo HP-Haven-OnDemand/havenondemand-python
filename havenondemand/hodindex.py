@@ -11,7 +11,7 @@ proxyDict = {
 
 
 
-class IODException(Exception):
+class HODException(Exception):
     def __init__(self, rjson, code):
 		  # Call the base class constructor with the parameters it needs
 		  if "detail" in rjson:
@@ -25,7 +25,7 @@ class IODException(Exception):
 class DocumentException(Exception):
 	pass
 
-class IODClient:
+class HODClient:
 	root=""
 	version= None
 	apiversiondefault = None
@@ -105,10 +105,10 @@ class IODClient:
 			print "Resuming"
 			return self.post(handler,data,files)
 		elif response.status_code != 200:
-			raise IODException(response,response.status_code)
+			raise HODException(response,response.status_code)
 		if async:
-			return IODAsyncResponse(response,self)
-		return IODResponse(response,self)
+			return HODAsyncResponse(response,self)
+		return HODResponse(response,self)
 
 
 
@@ -125,7 +125,7 @@ class IODClient:
 		return self.callAPI(url,data=data,async=False)
 
 
-class IODResponse(object):
+class HODResponse(object):
 
 	def __init__(self,response,client):
 		self.response=response
@@ -136,11 +136,11 @@ class IODResponse(object):
 
 
 
-class IODAsyncResponse(IODResponse):
+class HODAsyncResponse(HODResponse):
 
 	def __init__(self,response,client):
 
-		super(IODAsyncResponse,self).__init__(response,client)
+		super(HODAsyncResponse,self).__init__(response,client)
 		self.jobID=self.response.json()["jobID"]
 
 	def getResult(self):

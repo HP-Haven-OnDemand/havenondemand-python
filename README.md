@@ -1,20 +1,20 @@
 ### Installation
 
 ```
-pip install git+https://github.com/lemoogle/iod-python
+pip install git+https://github.com/HP-Haven-OnDemand/havenondemand-python
 ```
 
 
 ### Importing
 
 ```
-from iodpython.iodindex import IODClient
+from havenondemand.hodindex import HODClient
 ```
 
 ###Initializing the client
 
 ```
-client = IODClient("http://api.idolondemand.com/",
+client = HODClient("http://api.havenondemand.com/",
                             "myapikey")
 ```
 
@@ -24,7 +24,7 @@ All that is needed to initialize the client is an apikey and the url of the API.
 ```
 http_proxy  = "ip:port"
 proxyDict = {  "http"  : http_proxy }
-client = IODClient("http://api.idolondemand.com/",
+client = HODClient("http://api.havenondemand.com/",
                             "myapikey",proxies=proxyDict)
 ```
 
@@ -82,9 +82,9 @@ An Index object can easily be created
 ```python
 index = client.getIndex('myindex')
 ```
-The getIndex call will return an iodindex Index object but will not check for existence.
+The getIndex call will return an hodindex Index object but will not check for existence.
 
-```python 
+```python
 indexes = client.listIndexes()
 indexex.get('myindex',client.createIndex('myindex'))
 ```
@@ -121,7 +121,7 @@ index.commit()
 
 An alternative to *addDocs* and easy way to keep batch documents is to use the pushDoc method, the index will keep in memory a list of the documents it needs to index.
 
-``` 
+```
 if index.countDocs()>10:
   index.commit()
 ```
