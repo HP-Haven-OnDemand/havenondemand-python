@@ -1,5 +1,30 @@
-### Installation
+**Note:** use `iod` [branch](https://github.com/HP-Haven-OnDemand/iod-python/tree/iod) for older compatibility syntax.
 
+# Python Client Library for Haven OnDemand
+Official Python client library to help with calling Haven OnDemand APIs [http://havenondemand.com](http://havenondemand.com).
+
+## What is Haven OnDemand?
+Haven OnDemand is a set of over 70 APIs for handling all sorts of unstructured data. Here are just some of our APIs' capabilities:
+* Speech to text
+* OCR
+* Text extraction
+* Indexing documents
+* Smart search
+* Language identification
+* Concept extraction
+* Sentiment analysis
+* Web crawlers
+* Machine learning
+
+For a full list of all the APIs and to try them out, check out https://www.havenondemand.com/developer/apis
+
+
+### Installation
+To install
+```
+pip install havenondemand
+```
+To install the latest version from this github repo:
 ```
 pip install git+https://github.com/HP-Haven-OnDemand/havenondemand-python
 ```
@@ -30,7 +55,7 @@ client = HODClient("http://api.havenondemand.com/",
 
 The proxies parameter takes a dictionary of proxy urls. It will only use the one for the protocol chosen in the api url , *http* or *https*
 
-###Sending requests
+### Sending requests
 
 ```
 r=client.post(handler,{'param1':'value1','param2':'value2'})
