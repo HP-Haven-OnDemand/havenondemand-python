@@ -50,10 +50,10 @@ All that is needed to initialize the client is an apikey and the url of the API.
 http_proxy  = "ip:port"
 proxyDict = {  "http"  : http_proxy }
 client = HODClient("http://api.havenondemand.com/",
-                            "myapikey",proxies=proxyDict)
+                            "myapikey",proxy=proxyDict)
 ```
 
-The proxies parameter takes a dictionary of proxy urls. It will only use the one for the protocol chosen in the api url , *http* or *https*
+The `proxy` parameter takes a dictionary of proxy urls. It will only use the one for the protocol chosen in the api url , *http* or *https*
 
 ### Sending requests
 
@@ -61,7 +61,7 @@ The proxies parameter takes a dictionary of proxy urls. It will only use the one
 r=client.post(handler,{'param1':'value1','param2':'value2'})
 r=client.post('analyzesentiment',{'text':'I like cats'})
 ```
-The client's *post* method takes the apipath that you're sending your request to as well as an object containing the parameters you want to send to the api. You do not need to send your apikey each time as the client will handle that automatically
+The client's *post* method takes the API path that you're sending your request to as well as an object containing the parameters you want to send to the api. You do not need to send your API key each time as the client will handle that automatically.
 
 ###Posting files
 
