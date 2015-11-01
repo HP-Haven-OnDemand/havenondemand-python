@@ -1,4 +1,6 @@
-**Note:** use `iod` [branch](https://github.com/HP-Haven-OnDemand/iod-python/tree/iod) for older compatibility syntax.
+**Note 1:** use `iod` [branch](https://github.com/HP-Haven-OnDemand/iod-python/tree/iod) for older compatibility syntax.
+
+**Note 2:** compatible with Python 2.X
 
 # Python Client Library for Haven OnDemand
 Official Python client library to help with calling Haven OnDemand APIs [http://havenondemand.com](http://havenondemand.com).
