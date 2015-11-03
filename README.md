@@ -22,10 +22,6 @@ For a full list of all the APIs and to try them out, check out https://www.haven
 
 
 ### Installation
-To install
-```
-pip install havenondemand
-```
 To install the latest version from this github repo:
 ```
 pip install git+https://github.com/HP-Haven-OnDemand/havenondemand-python
