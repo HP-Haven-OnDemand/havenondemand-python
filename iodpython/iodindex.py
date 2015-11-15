@@ -1,23 +1,23 @@
 import requests
 import json
-import httplib
+import http.client
 import time
 
 proxyDict = {
-#				  "http"  : http_proxy,
- #				 "https" : https_proxy,
-  #				"ftp"   : ftp_proxy
-				}
+#        		  "http"  : http_proxy,
+ #        		 "https" : https_proxy,
+  #        		"ftp"   : ftp_proxy
+        		}
 
 
 
 class IODException(Exception):
     def __init__(self, rjson, code):
 		  # Call the base class constructor with the parameters it needs
-		  if "detail" in rjson:
-		  	Exception.__init__(self, "Response code {} - Error {} - {} \n Details: {}".format(code,rjson["error"],rjson["reason"], rjson["detail"]))
-		  else:
-		  	Exception.__init__(self, "Response code {} - Error {} - {} ]n Details: {} ".format(code,rjson["error"],rjson["reason"],rjson))
+        if "detail" in rjson:
+        	Exception.__init__(self, "Response code {} - Error {} - {} \n Details: {}".format(code,rjson["error"],rjson["reason"], rjson["detail"]))
+        else:
+        	Exception.__init__(self, "Response code {} - Error {} - {} ]n Details: {} ".format(code,rjson["error"],rjson["reason"],rjson))
 
 		  # Now for your custom code...
 
@@ -46,7 +46,7 @@ class IODClient:
 		indexdata={"index":name,"flavor":flavor,"index_fields":index_fields,"parametric_fields":parametric_fields}
 		r=self.post("createtextindex",indexdata)
 		result=r.json()
-		print result
+		print(result)
 		try:
 			return Index(self,result["index"])
 		except:
@@ -69,7 +69,7 @@ class IODClient:
 	def deleteIndex(self,name):
 		indexdata={"index":name}
 		r=self.post("deletetextindex",indexdata).json()
-		print "confirming"
+		print("confirming")
 		indexdata["confirm"]=r["confirm"]
 		r=self.post("deletetextindex",indexdata).json()
 
@@ -77,7 +77,6 @@ class IODClient:
 		result={}
 		r=self.post('listindex',{'type':type, 'flavor':flavor }).text
 		for index in json.loads(r)["index"]:
-
 			result[index["index"]]=self.parseIndex(index)
 		return result
 
@@ -99,10 +98,10 @@ class IODClient:
     #print "ERROR"
 
 		if response.status_code == 429:
-			print "Throttled, Sleeping 2 seconds"
-			print response.text
+			print("Throttled, Sleeping 2 seconds")
+			print(response.text)
 			time.sleep(2)
-			print "Resuming"
+			print("Resuming")
 			return self.post(handler,data,files)
 		elif response.status_code != 200:
 			raise IODException(response,response.status_code)
