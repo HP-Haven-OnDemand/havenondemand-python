@@ -32,12 +32,12 @@ class HODClient:
 	apikey= None
 	proxy= None
 
-	def __init__(self,apikey,version=1,apiversiondefault=1,proxy={}):
-		if apikey=='http://api.havenondemand.com' || apikey=='http://api.havenondemand.com/' || apikey=='https://api.havenondemand.com' || apikey=='https://api.havenondemand.com/':
-			raise DeprecationWarning("Using an outdated wrapper constructor method. No need to include API URL.\nInclude as such:\n client = HODClient(API_KEY)")
+	def __init__(self,apikey,apiversiondefault=1,version=1,proxy={}):
+		if apikey=='http://api.havenondemand.com' or apikey=='http://api.havenondemand.com/' or apikey=='https://api.havenondemand.com' or apikey=='https://api.havenondemand.com/':
+			raise DeprecationWarning("Using an outdated wrapper constructor method. No need to include API URL.Include as such:\n client = HODClient(API_KEY)")
 		self.root="https://api.havenondemand.com"
 		self.version=version
-		self.apiversiondefault=1
+		self.apiversiondefault=apiversiondefault
 		self.apikey=apikey
 		self.proxy=proxy
 

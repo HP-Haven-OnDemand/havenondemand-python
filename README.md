@@ -34,24 +34,23 @@ pip install git+https://github.com/HP-Haven-OnDemand/havenondemand-python
 from havenondemand.hodindex import HODClient
 ```
 
-###Initializing the client
+### Initializing the client
 
 ```
-client = HODClient("http://api.havenondemand.com/",
-                            "myapikey")
+client = HODClient(apikey="myapikey", apiversiondefault=version_number)
 ```
+You can find your API key [here](https://www.haveondemand.com/account/api-keys.html) after signing up.
 
-All that is needed to initialize the client is an apikey and the url of the API.
+`apiversiondefault` is an optional parameter (defaults to `1`) and can be either `1` or `2`.
 
 **Proxies**
 ```
 http_proxy  = "ip:port"
-proxyDict = {  "http"  : http_proxy }
-client = HODClient("http://api.havenondemand.com/",
-                            "myapikey",proxy=proxyDict)
+proxyDict = {"http": http_proxy}
+client = HODClient(apikey="myapikey", apiversiondefault=version_number, proxy=proxyDict)
 ```
 
-The `proxy` parameter takes a dictionary of proxy urls. It will only use the one for the protocol chosen in the api url , *http* or *https*
+The `proxy` parameter is optional and takes a dictionary of proxy urls. It will only use the one for the protocol chosen in the api url , *http* or *https*
 
 ### Sending requests
 
