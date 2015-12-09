@@ -150,12 +150,12 @@ class HODAsyncResponse(HODResponse):
 
 class Index:
 
-	docs=[];
 	client= None
 	name=""
 	def __init__(self,client,name):
 		self.client=client
 		self.name=name
+		self.docs=[]
 
 	def size(self):
 		return len(self.docs)
