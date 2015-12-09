@@ -1,25 +1,23 @@
 import requests
 import json
-import httplib
+import http.client
 import time
 
 proxyDict = {
-#				  "http"  : http_proxy,
- #				 "https" : https_proxy,
-  #				"ftp"   : ftp_proxy
-				}
+	#				  "http"  : http_proxy,
+	#				 "https" : https_proxy,
+	#				"ftp"   : ftp_proxy
+	}
 
 
 
 class HODException(Exception):
-    def __init__(self, rjson, code):
-		  # Call the base class constructor with the parameters it needs
-		  if "detail" in rjson:
-		  	Exception.__init__(self, "Response code {} - Error {} - {} \n Details: {}".format(code,rjson["error"],rjson["reason"], rjson["detail"]))
-		  else:
-		  	Exception.__init__(self, "Response code {} - Error {} - {} ]n Details: {} ".format(code,rjson["error"],rjson["reason"],rjson))
-
-		  # Now for your custom code...
+	def __init__(self, rjson, code):
+  		# Call the base class constructor with the parameters it needs
+		if "detail" in rjson:
+			Exception.__init__(self, "Response code {} - Error {} - {} \n Details: {}".format(code,rjson["error"],rjson["reason"], rjson["detail"]))
+		else:
+			Exception.__init__(self, "Response code {} - Error {} - {} ]n Details: {} ".format(code,rjson["error"],rjson["reason"],rjson))
 
 
 class DocumentException(Exception):
@@ -46,7 +44,7 @@ class HODClient:
 		indexdata={"index":name,"flavor":flavor,"index_fields":index_fields,"parametric_fields":parametric_fields}
 		r=self.post("createtextindex",indexdata)
 		result=r.json()
-		print result
+		print(result)
 		try:
 			return Index(self,result["index"])
 		except:
@@ -69,7 +67,7 @@ class HODClient:
 	def deleteIndex(self,name):
 		indexdata={"index":name}
 		r=self.post("deletetextindex",indexdata).json()
-		print "confirming"
+		print("confirming")
 		indexdata["confirm"]=r["confirm"]
 		r=self.post("deletetextindex",indexdata).json()
 
@@ -99,10 +97,10 @@ class HODClient:
     #print "ERROR"
 
 		if response.status_code == 429:
-			print "Throttled, Sleeping 2 seconds"
-			print response.text
+			print("Throttled, Sleeping 2 seconds")
+			print(response.text)
 			time.sleep(2)
-			print "Resuming"
+			print("Resuming")
 			return self.post(handler,data,files)
 		elif response.status_code != 200:
 			raise HODException(response,response.status_code)
