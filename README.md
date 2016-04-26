@@ -1,4 +1,4 @@
-**Note 1:** this repo is outdated. Please see [this repo](https://github.com/HPE-Haven-OnDemand/havenondemand-python-v2.0).
+**Note 1:** this repo is outdated. Please see [this repo](https://github.com/HPE-Haven-OnDemand/havenondemand-python).
 
 **Note 2:** use `iod` [branch](https://github.com/HP-Haven-OnDemand/iod-python/tree/iod) for older compatibility syntax.
 
