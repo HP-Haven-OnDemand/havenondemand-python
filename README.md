@@ -1,6 +1,6 @@
-**Note 1:** this repo is outdated. Please see [this repo](https://github.com/HPE-Haven-OnDemand/havenondemand-python).
+**Note 1:** this repo is outdated. Please see [this repo](https://github.com/HPE-Haven-OnDemand/havenondemand-python-v2.0).
 
-**Note 2:** use `iod` [branch](https://github.com/HPE-Haven-OnDemand/havenondemand-python_depreciated/tree/iod) for older compatibility syntax.
+**Note 2:** use `iod` [branch](https://github.com/HP-Haven-OnDemand/iod-python/tree/iod) for older compatibility syntax.
 
 **Note 3:** compatible with Python 2.X
 
@@ -26,7 +26,7 @@ For a full list of all the APIs and to try them out, check out https://www.haven
 ### Installation
 To install the latest version from this github repo:
 ```
-pip install git+https://github.com/HPE-Haven-OnDemand/havenondemand-python_depreciated
+pip install git+https://github.com/HP-Haven-OnDemand/havenondemand-python_deprecated
 ```
 
 
